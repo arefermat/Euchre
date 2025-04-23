@@ -2,8 +2,7 @@ import random
 import time
 
 
-
-class deck:
+class Deck 
   def __init__(self):
     self.player1 = []
     self.player2 = []
@@ -43,12 +42,17 @@ class deck:
 
       self.deck.pop(dealt_index)
       player += 1
+      if player == 5:
+        player = 1
     self.curtain = self.deck
-    self.deck.clear()
-    return self.player1, self.player2, self.player3, self.player4
+    return self.player1, self.player2, self.player3, self.player4, self.curtain
 
-
-deck = Deck()
-deck_shuffled = deck.shuffle()
-player1, player2, player3, player4 = deck.deal()
-print(f"Player 1 : {player1} \nPlayer 2 : {player2} \nPlayer 3 : {player3} \nPlayer 4 : {player4}")
+if __name__ == "__main__":
+  deck = deck()
+  deck.shuffle()
+  player1, player2, player3, player4, curtain = deck.deal()
+  
+  print(f"Player 1 :", " ".join(player1))
+  print(f"Curtain : {curtain[0]}")
+  
+  
