@@ -94,13 +94,13 @@ fn choose_trump(up_card: Card, player1: Player, player2: Player, player3: Player
   let players = vec![player1, player2, player3, player4];
   let up_card = curtain.iter().next();
 
-  if player_turn == 1:
+  if player_turn == 1 {
     println!("The Up-Card is {} of {}", up_card.Rank, up_card.Suit);
 
     let mut decision = String::new()
     println!("Pass or Accept as trump : ");
     let _ = stdin().read_line(&mut decision).unwrap();
-    match decision {
+    let trump_suit = match decision {
       "accept" => {
         println!("{:?} has been chosen as the trump suit", upcard.suit),
         up_card.Suit
@@ -109,6 +109,8 @@ fn choose_trump(up_card: Card, player1: Player, player2: Player, player3: Player
         println!("{:?} has been chosen as the trump suit", upcard.suit)
         up_card.Suit
       }
+    }
+    if trump_suit == up_card.suit {
       for player in players {
         for mut card in player.Cards {
           if card.Suit = up_card.suit {
@@ -116,6 +118,8 @@ fn choose_trump(up_card: Card, player1: Player, player2: Player, player3: Player
           }
         }
       }
+    }
+  }
 }
 
 fn round(player1: Player, player2: Player, player3: Player, player4: Player, curtain: Vec<Card>) {
@@ -126,8 +130,5 @@ fn round(player1: Player, player2: Player, player3: Player, player4: Player, cur
       player_turn = player;
     }
   }
-
-  
-  }
-  
 }
+  
