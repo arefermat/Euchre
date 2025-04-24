@@ -66,21 +66,24 @@ fn shuffle(deck: Vec<Card>) -> Vec<Card> {
   
   shuffled
 }
-
-
-
 fn deal(deck: Vec<Card>) -> Player, Player, Player, Player, Vec<Card> {
   for player in 0..4 {
     let cards = Vec::new()
     for card in 0..5 {
       cards.push(deck.choice())
     }
-    let _ = Player{
+    Player{
       ID : player,
       Cards : cards,
       Points : 0,
       Teammate : 2,
-      Dealer : true,
-    };
+      Dealer : false,
+    }
   }
+  let cutain = deck;
+  curtain
+}
+
+fn round() {
+  
 }
