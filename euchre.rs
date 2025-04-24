@@ -1,5 +1,6 @@
 use rand::seq::SliceRandom;
 use rand::thread_rng;
+use std::stdin;
 
 
 enum Suits {
@@ -33,6 +34,7 @@ struct Player {
   Points : i32,
   Teammate : i32,
   Dealer : bool,
+  Turn : bool,
 }
 
 fn build() -> Vec<Card> {
@@ -78,12 +80,29 @@ fn deal(deck: Vec<Card>) -> Player, Player, Player, Player, Vec<Card> {
       Points : 0,
       Teammate : 2,
       Dealer : false,
+      Turn : false
     }
   }
   let cutain = deck;
   curtain
 }
 
-fn round() {
+fn round(player1: Player, player2: Player, player3: Player, player4: Player, player_turn: i32, curtain: Vec<Card>) {
+  let players = vec![player1, player2, player3, player4];
+  for player in players {
+    
+  }
+
+  let up_card = curtain.iter().next();
+  println!("The Up-Card is {} of {}", up_card.Rank, up_card.Suit);
+
+  let mut decision = String::new()
+  println!("Pass or Accept as trump : ");
+  let _ = stdin().read_line(&mut decision).unwrap();
+  match decision {
+    "pass" => {
+      
+    }
+  }
   
 }
